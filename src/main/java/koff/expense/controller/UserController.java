@@ -1,7 +1,7 @@
 package koff.expense.controller;
 
 import koff.expense.model.dto.user.UserDTO;
-import koff.expense.model.form.UserForm;
+import koff.expense.model.form.user.UserForm;
 import koff.expense.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

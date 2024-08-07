@@ -1,4 +1,4 @@
-package koff.expense.model.form;
+package koff.expense.model.form.user;
 
 
 import jakarta.validation.constraints.NotBlank;

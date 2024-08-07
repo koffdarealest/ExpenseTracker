@@ -1,4 +1,4 @@
-package koff.expense.config.exception;
+package koff.expense.exception;
 
 public class ResourceNotFoundException extends RuntimeException {
 
