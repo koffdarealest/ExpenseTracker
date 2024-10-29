@@ -75,8 +75,9 @@ public class JwtServiceImpl implements JwtService {
     public String getIdFromToken() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null || authentication.isAuthenticated()) {
-            String token = (String) authentication.getCredentials();
-            return extractId(token);
+//            String token = (String) authentication.getCredentials();                  //noob mistake 1
+            UserAuth userAuth = (UserAuth) authentication.getPrincipal();
+            return userAuth.getUser().getId();
         }
         return null;
     }
@@ -89,10 +90,10 @@ public class JwtServiceImpl implements JwtService {
         return extractClaims(token, Claims::getExpiration);
     }
 
-    private String extractId(String token) {
-        Claims claims = extractAllClaims(token);
-        return claims.get("id", String.class);
-    }
+//    private String extractId(String token) {              //noob mistake 1
+//        Claims claims = extractAllClaims(token);
+//        return claims.get("id", String.class);
+//    }
 
     private Claims extractAllClaims(String token) {
         return Jwts

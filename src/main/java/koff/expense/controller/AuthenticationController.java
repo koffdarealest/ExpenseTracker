@@ -4,14 +4,13 @@ import jakarta.validation.constraints.NotBlank;
 import koff.expense.model.dto.auth.AuthenticationResponse;
 import koff.expense.model.form.auth.AuthenticationRequest;
 import koff.expense.service.AuthenticationService;
+import koff.expense.service.JwtService;
 import koff.expense.service.RefreshTokenService;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
 @RestController
@@ -23,6 +22,7 @@ public class AuthenticationController {
 
     private final AuthenticationService authenticationService;
     private final RefreshTokenService refreshTokenService;
+    private final JwtService jwtService;
 
     @PostMapping("/login")
     public AuthenticationResponse login(
